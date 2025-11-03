@@ -1,0 +1,167 @@
+
+			/* ======================
+                ESTILOS GENERALES
+             ====================== */
+            body {
+				background: #0d1117;                                           /* Fondo oscuro. Habría que mirar en un futuro la opción de ajustarlo según el tema del SO o del navegador, o a elección del usuario */
+				color: #c9d1d9;                                                /* Color del texto, pasaría igual que con el fondo */
+				font-family: 'Segoe UI', sans-serif;                             /* Fuente para el texto que, aunque no me disgusta, me gustaría encontrar una más tipo "computadora" */
+			}
+
+            /* ======================
+                SECCIÓN HERO (cabecera principal)
+            ====================== */
+			.hero {
+				padding: 5rem 1rem;                                             /* Espacio intermedio o interno, grande */
+				text-align: center;                                             /* Centra el texto */
+				background: linear-gradient(135deg, #1f2937, #111827);      /* Degradado oscuro lineal, en dirección diagonal, 135 grados */
+			}
+
+            /* ======================
+            BOTÓN DISCORD
+            ====================== */
+			.btn-discord {
+				background-color: #5865f2;                                     /* Color oficial de Discord, o eso dice GPTo */
+				border: none;                                                    /* Sin borde, y por si se me ocurre poner uno, ya lo he probado y no me gustó, así que no toques */
+			}
+
+            /* ======================
+            IMÁGENES (GENERALES)
+            ====================== */
+			.img-feature,
+			.gallery-img {
+				max-width: 100%;                                                /* Máxima anchura de la imagen */
+				border-radius: 12px;                                            /* Bordes redondeados */
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);                    /* Efecto sombreado */
+			}
+
+			.gallery-img {
+				margin-bottom: 1rem;                                            /* Especio inferior entre imagenes */
+			}
+
+           
+			.main-content {
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+			}
+
+            .gallery-img {
+			transition: transform 0.3s ease;                                    /**/
+			}
+
+            /* ======================
+            BARRA DE BÚSQUEDA CON ICONO
+            ====================== */
+			.search-bar {
+				background-image: url('/sonidu.github.io/images/home.png');                      /* Icono Parabellum pequeño a la izquierda */
+				background-repeat: no-repeat;                                   /**/
+				background-size: 20px 20px;                                     /**/
+				background-position: 10px center;                               /* Centrado verticalmente */
+				padding-left: 40px;                                             /* Espacio para el icono */
+			}
+
+            /* ======================
+            SECCIÓN FEATURES
+            ====================== */            
+			.features {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;                                                      /* Separación entre elementos */
+				margin-top: 2rem;
+				flex-wrap: wrap;                                                /* Permite que salten de línea en pantallas pequeñas */
+			}
+
+            /* ======================
+            BLOQUE INDIVIDUAL (CADA FEATURE)
+            ====================== */
+			.feature {
+				width: 300px;
+				text-align: center;
+			}
+
+			.feature img {
+				transition: transform 0.3s ease;                                /* Animación suave al pasar el ratón */
+				border-radius: 8px;
+				max-width: 100%;
+			}
+
+            /*=============================
+             Efecto zoom al pasar el ratón 
+             =============================*/
+			.feature img:hover {
+				transform: scale(1.05);                                         /* Zoom sobre la imagen al hacer hover */
+			}
+			
+            /* ======================
+                ONTENIDO PRINCIPAL
+            ====================== */
+			.main-content {
+				background-image: url('images/fondo.jpg');                     /* Imagen de fondo */
+				background-attachment: fixed;                                   /* fondo fijado, al hacer scroll no se mueve */
+				background-position: center center;                             /* centrado */
+				background-repeat: no-repeat;                                   /* No se repite la imagen */
+				background-size: cover;                                         /* Estirada para que cubra todo el fondo */
+				padding-top: 3rem;                                              /**/
+				padding-bottom: 3rem;                                           /**/
+				position: relative;                                             /**/
+				z-index: 0;                                                     /* Coloca dentrás del overlay */
+			}
+
+            /* ======================
+            OVERLAY OSCURECEDOR
+            ====================== */
+			.background-overlay {
+				background-color: rgba(13, 17, 23, 0.55);                   /* color oscuro semitransparente */
+				padding: 2rem;
+				border-radius: 8px;
+				z-index: 1;
+			}
+			
+			/* ======================
+				ALINEACIÓN DE TEXTO
+			====================== */
+			.centrado {
+			text-align: center;
+			}
+
+			.derecha {
+			text-align: right;
+			}
+
+			.izquierda {
+			text-align: left;
+			}
+
+			.justificado {
+			text-align: justify;
+			}
+            
+			.parrafo1{
+				text-align: right;
+				background-color: aqua;
+				font-family: monospace;
+			}
+
+			p{								/*Etiqueta para parrafo*/
+
+			}
+
+			span{							/* Etiqueta para un contenedor. No hace un salto de línea al final.*/
+
+			}
+
+			div{							/* Etiqueta para un contedor pero si hace salto de línea */
+
+			}
+
+			h1{
+
+			}
+
+			h2{
+
+			}
+
+			h3{
+
+			}
