@@ -16,8 +16,50 @@
 				text-align: center;                                             /* Centra el texto */
 				background: linear-gradient(135deg, #1f2937, #111827);      /* Degradado oscuro lineal, en dirección diagonal, 135 grados */
 			}
+
+            /* ======================
+            BOTÓN DISCORD
+            ====================== */
+			.btn-discord {
+				background-color: #5865f2;                                     /* Color oficial de Discord, o eso dice GPTo */
+				border: none;                                                    /* Sin borde, y por si se me ocurre poner uno, ya lo he probado y no me gustó, así que no toques */
+			} 
 			
-            
+            /* ======================
+            IMÁGENES (GENERALES)
+            ====================== */
+			.img-feature,
+			.gallery-img {
+				max-width: 100%;                                                /* Máxima anchura de la imagen */
+				border-radius: 12px;                                            /* Bordes redondeados */
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);                    /* Efecto sombreado */
+			}
+
+			.gallery-img {
+				margin-bottom: 1rem;                                            /* Especio inferior entre imagenes */
+			}
+
+           
+			.main-content {
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+			}
+
+            .gallery-img {
+			transition: transform 0.3s ease;                                    /**/
+			}
+
+            /* ======================
+            BARRA DE BÚSQUEDA CON ICONO
+            ====================== */
+			.search-bar {
+				background-image: url('');                      /* Icono Parabellum pequeño a la izquierda */
+				background-repeat: no-repeat;                                   /**/
+				background-size: 20px 20px;                                     /**/
+				background-position: 10px center;                               /* Centrado verticalmente */
+				padding-left: 40px;                                             /* Espacio para el icono */
+			}
+
             /* ======================
             SECCIÓN FEATURES
             ====================== */            
@@ -53,7 +95,7 @@
             /* ======================
                 ONTENIDO PRINCIPAL
             ====================== */
-			.contenido-principal {
+			.main-content {
 				background-image: url('../images/fondo.jpg');                     /* Imagen de fondo */
 				background-attachment: fixed;                                   /* fondo fijado, al hacer scroll no se mueve */
 				background-position: center center;                             /* centrado */
@@ -74,44 +116,6 @@
 				border-radius: 8px;
 				z-index: 1;
 			}
-
-			/*======================
-				Otros
-			======================*/
-			/*a:link {
-				color: #58a6ff;
-			}
-
-			a:visited {
-				color: #ff66cc;
-			}
-
-			a:hover {
-				color: #1f6feb;
-				text-decoration: underline;
-			}
-
-			a:active {
-				color: #58a6ff;
-			}
-
-			.main-content a:link {
-				color: #58a6ff; 
-			}
-
-			.main-content a:visited {
-				color: #ff66cc; 
-			}
-
-			.main-content a:hover {
-				color: #1f6feb; 
-				text-decoration: underline;
-			}
-
-			.main-content a:active {
-				color: #58a6ff;
-			}*/
-
 			
 			/* ======================
 				ALINEACIÓN DE TEXTO
@@ -138,20 +142,27 @@
 				font-family: monospace;
 			}
 
-			/*p{ } */								/*Etiqueta para parrafo*/
-				
-			
+			p{								/*Etiqueta para parrafo*/
+				color:  white;
+			}
 
-			/* span{ } */							/* Etiqueta para un contenedor. No hace un salto de línea al final.*/
-				
-			
+			span{							/* Etiqueta para un contenedor. No hace un salto de línea al final.*/
+				color: white;
+			}
 
-			/* div{ } */							/* Etiqueta para un contedor pero si hace salto de línea */
-				
-			
+			div{							/* Etiqueta para un contedor pero si hace salto de línea */
+				color: white;
+			}
 
-			/* h1{ } */
-				
-			
+			h1{
+				color: white;
+			}
 
-			
+			h2{
+				color: white;
+				
+			}
+				
+			h3{
+				color: white;
+			}
