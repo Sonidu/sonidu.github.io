@@ -40,24 +40,13 @@
 			}
 
            
-			.main-content {
+			.contenido-principal {
 				padding-top: 2rem;
 				padding-bottom: 2rem;
 			}
 
             .gallery-img {
 			transition: transform 0.3s ease;                                    /**/
-			}
-
-            /* ======================
-            BARRA DE BÚSQUEDA CON ICONO
-            ====================== */
-			.search-bar {
-				background-image: url('');                      /* Icono Parabellum pequeño a la izquierda */
-				background-repeat: no-repeat;                                   /**/
-				background-size: 20px 20px;                                     /**/
-				background-position: 10px center;                               /* Centrado verticalmente */
-				padding-left: 40px;                                             /* Espacio para el icono */
 			}
 
             /* ======================
@@ -95,8 +84,8 @@
             /* ======================
                 ONTENIDO PRINCIPAL
             ====================== */
-			.main-content {
-				background-image: url('../images/fondo.jpg');                     /* Imagen de fondo */
+			.contenido-principal {
+				background-image: url('../images/fondo.jpg');                   /* Imagen de fondo */
 				background-attachment: fixed;                                   /* fondo fijado, al hacer scroll no se mueve */
 				background-position: center center;                             /* centrado */
 				background-repeat: no-repeat;                                   /* No se repite la imagen */
@@ -111,7 +100,7 @@
             OVERLAY OSCURECEDOR
             ====================== */
 			.background-overlay {
-				background-color: rgba(13, 17, 23, 0.55);                   /* color oscuro semitransparente */
+				background-color: rgba(13, 17, 23, 1.55);                   	/* color oscuro semitransparente */
 				padding: 2rem;
 				border-radius: 8px;
 				z-index: 1;
@@ -137,32 +126,8 @@
 			}
             
 			.parrafo1{
-				text-align: right;
-				background-color: aqua;
+				text-align: right;				
 				font-family: monospace;
 			}
 
-			p{								/*Etiqueta para parrafo*/
-				color:  white;
-			}
-
-			span{							/* Etiqueta para un contenedor. No hace un salto de línea al final.*/
-				color: white;
-			}
-
-			div{							/* Etiqueta para un contedor pero si hace salto de línea */
-				color: white;
-			}
-
-			h1{
-				color: white;
-			}
-
-			h2{
-				color: white;
-				
-			}
-				
-			h3{
-				color: white;
-			}
+			
