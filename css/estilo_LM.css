@@ -100,7 +100,7 @@
             OVERLAY OSCURECEDOR
             ====================== */
 			.background-overlay {
-				background-color: rgba(13, 17, 23, 1.55);                   	/* color oscuro semitransparente */
+				background-color: rgba(13, 17, 23, 0.55);                   	/* color oscuro semitransparente */
 				padding: 2rem;
 				border-radius: 8px;
 				z-index: 1;
