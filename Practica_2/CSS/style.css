@@ -1,0 +1,53 @@
+* {
+    margin: 2px;
+    padding: 2px;
+}
+
+body{
+    background-image: url("../images/wp7117141-1078256107.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    text-align: center;
+}
+
+h1{
+    background-color:#a1526e;
+    color: pink;
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-left-color: #FDE2FB;
+    border-radius: 50px;
+    width: auto;
+}
+
+img{
+    border: 10px #FDE2FB solid;
+    border-radius: 200px;
+    box-shadow: 20px 10px 5px black;
+    height: 500px;
+}
+
+ul{
+    list-style-type:none;
+}
+
+li{
+    display: inline; 
+    border: 2px pink solid;
+    border-radius: 50px;
+    
+}
+a{
+    color: pink;
+}
+
+.Dragon_Ball {
+  width: 1000px;       
+  height: auto;       
+  border-radius: 8px; 
+  
+}
+
+
+
