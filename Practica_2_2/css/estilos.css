@@ -45,6 +45,7 @@ body {
   margin-right: 60px;
   background: #fff;
   border: 6px solid #000;
+  text-align: right;
 }
 
 #image img {  
