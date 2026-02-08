@@ -8,40 +8,39 @@
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #f1f0ff; 
-  color: grey;
+  background-color: rgba(158, 157, 157, 0.466); 
+  color: grey;  
 }
 
 /*  CABECERA SUP. */
 
-header {    
+header {    /* De momento vacío, no hago nada en él*/
 }
 
-.subheader{  
+.subheader{  /* Sub contenedor dentro del encabezado*/
     position: fixed;
     top: 20px;
     left: 15px;
     right: 15px;   
-    background-color: whitesmoke; 
+    background-color: white; 
 }
-a {
+a { /*Contenedor para definir los enlaces, le ponemos "none" para que no ponga un punto delante de cada elemento*/
     text-decoration: none;
 }
-a:hover {
+a:hover { /* Para poner subrayados los links al pasar el mouse por encima*/
     text-decoration: underline;
 }
 
-.links{
+.links{ /* Links del encabezado, les metemos un flex para organizarlos*/
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
     border: 3px dashed black;
     border-radius: 15px;
-    overflow: hidden;
 }
 
-.links li {
+.links li { /* Los colocamos como una lista*/
     margin: 0;
     padding: 15px 30px;
     text-align: center;
@@ -49,24 +48,24 @@ a:hover {
     border-right: 3px dashed black;
 }
 
-.links li.sombreado {
+.links li.sombreado { /*Creamos un tipo para los elementos de la lista sombreados, como el 3º*/
     color: black;
     background-color: rgb(160, 158, 158);
     
 }
 
-.links li:last-child {
+.links li:last-child { /*Al último hijo no le ponemos el borde a la derecha */
     border-right: none;
 }
 
 /* CUERPO */
 
-.texto-overlay {
+.texto-overlay { /*Caja de texto que se superpone*/
     position: fixed;
     top: 300px;
     width: 100%;
 }
-.texto-box {
+.texto-box { /*Contenedor para el texto de la caja de texto*/
     width: 600px;
     margin: 0 auto;
     background-color: white;
@@ -74,29 +73,29 @@ a:hover {
     box-shadow: 0 0 10px black;
 }
 
-.texto-box h3 {
+.texto-box h3 { /* Contenedor para definir el tipo de texto dentro de un h3*/
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid rgb(160, 158, 158);
     text-align: center;
 }
 
-.texto-box p {
+.texto-box p { /* Contenedor para definir los párrafos dentro de la caja*/
     padding: 15px;
     border-bottom: 1px solid rgb(160, 158, 158);
     text-align: center;
 }
 
-.boton {
+.boton { /*Contenedor para el botón de la caja de texto*/
     text-align: center;
 }
 
-main {
+main { /* Cuerpo ppal de la página*/
     margin-top: 100px;
     margin-left: 15px;
     margin-right: 15px;
 }
-.caja1{
+.caja1{ /*Caja al principio del main*/
     position: static;
     width: 100%;
     background-color: rgb(160, 158, 158);
@@ -105,16 +104,16 @@ main {
     text-align: left;
 }
 
-h1 {
+h1 { /*Contenedor para definir el tipo h1*/
     color: black;
 }
 
-.bloque {
+.bloque { /*Contenedor tipo bloque*/
     width: 80%;
     margin: 200px auto;
 }
 
-.bloque-central {
+.bloque-central { /*subcontenedor del tipo bloque, este va a la izquierda*/
     display: flex;
     flex-direction: row;
     border: 2px solid black;
@@ -122,22 +121,22 @@ h1 {
     margin-bottom: 30px;
 }
 
-.texto {
+.texto { /*Contenedor para definir texto*/
     width: 60%;
     padding: 20px;
 }
 
-.imagen {
+.imagen { /*Contenedor para definir la imagen*/
     width: 50%;
 }
 
-.imagen img {
+.imagen img { /*Contenedor como imagen, pero más especifica para los contenedores tipo bloque*/
     width: 100%;
     height: auto;
     display: block;
 }
 
-.bloque-inverso {
+.bloque-inverso { /*subcontenedor del tipo bloque, este va a la derecha*/
     display: flex;
     flex-direction: row-reverse;
     border: 2px solid black;
@@ -145,7 +144,7 @@ h1 {
     margin-bottom: 30px;
 }
 
-.menu-lateral {
+.menu-lateral { /*Contenedor para el menú lateral de links*/
     list-style: none;
     position: fixed;
     padding: 0;
@@ -155,12 +154,12 @@ h1 {
     width: 80px;
 }
 
-.menu-lateral li {
+.menu-lateral li {  /*Contenedor tipo lista para los elementos del menú lateral*/
     list-style: none;
     margin: 10px 0;
 }
 
-.menu-lateral img{
+.menu-lateral img{ /*Define las propiedades de las imagenes de la lista*/
     list-style: none;
     width: 60px;
     height: auto;
@@ -168,7 +167,7 @@ h1 {
 
 /* PIE DE PÁGINA */
 
-footer {
+footer { /*Contenedor para el píe de página*/
     margin: 100px;
     left: 5px;
     right: 5px;
@@ -178,14 +177,14 @@ footer {
     border-top: 3px dashed black;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px) { /* Esta parte espara reajustar el tamaño según dispositivo*/
 
-    .texto-box {
+    .texto-box { /* Redefinimos el Contenedor para la caja vista desde móvil*/
         width: 90%;
         max-width: none;
     }
 
-    .bloque-central,
+    .bloque-central, /* Para redefinir el bloque central derecho e izquierdo*/
     .bloque-inverso {
         flex-direction: column;
     }
@@ -195,20 +194,20 @@ footer {
         width: 100%;
     }
 
-    .menu-lateral {
+    .menu-lateral { /*Redefine el tamaño del bloque latera derecho con los links*/
         position: static;
         width: 100%;
         margin-top: 20px;
         text-align: center;
     }
 
-    .menu-lateral ul {
+    .menu-lateral ul { /*Lo mismo que el anterior, pero para la lista*/
         display: flex;
         justify-content: center;
         padding: 0;
     }
 
-    .menu-lateral li {
+    .menu-lateral li { /*Lo mismo que el anterior, pero para los elementos de la lista*/
         list-style: none;
         margin: 0 5px;
     }
