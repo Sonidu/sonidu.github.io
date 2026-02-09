@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- TEMA 1O JavaScript-->
+    <head>
+        <script>
+        console.log("hola mundo")
+        console.warn("ojo!!")
+        console.erro("Ya lo has roto")
+        let nombre="Juan"
+        const curso="DAM" /*Const es un tipo de valor CONSTANTE por lo que luego no se puede cambiar*/
+        console.log("Tu nombre es: " +nombre)
+        console.log("Tu nombre es: ", nombre)
+        console.log(`Tu nombre es: ${nombre}`)
+        console.log("Tu nombre es: " +nombre +"Y estas en el curso:" +curso)
+        console.log(edad <18 ? "Eres menor." : "Eres mayor")
+    </script>
+    <script src="js/app.js"></script> /* La posición del scrip determina como y cuando se carga*/
+    </head>
+    <body>
+        <p>La carga de la web es secuelcial, de arriba a abajo, si ponemos un script arriba y tarda mucho, 
+            la pagina web no cargará hasta que el script esté cargado, por eso conviene pensar donde colocar
+            el script, salvo que se usar "defer" que hará que el script se cargue de forma simultanea al contenido del script.
+        </p>
+        <p> Usaremos LET (let) para definir variables, por ejemplo let nombre = "Juan". Antiguamete se 
+            usaba var, pero da errores por lo que conviene cambiar a let.
+        </p>
+    </body>
+    
+</html>
