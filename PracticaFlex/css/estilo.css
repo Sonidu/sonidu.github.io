@@ -184,12 +184,12 @@ footer { /*Contenedor para el píe de página*/
         max-width: none;
     }
 
-    .bloque-central, /* Para redefinir el bloque central derecho e izquierdo*/
+    .bloque-central, /* Para redefinir el contenedor .bloque-central y .bloque-inversio*/
     .bloque-inverso {
         flex-direction: column;
     }
 
-    .texto,
+    .texto, /*Redefinimos el contenedor .texto y .imagen*/
     .imagen {
         width: 100%;
     }
