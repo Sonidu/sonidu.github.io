@@ -3,16 +3,69 @@
     <!-- TEMA 1O JavaScript-->
     <head>
         <script>
+        // No usar var
+        // diferencia entre = == y ===
         console.log("hola mundo")
         console.warn("ojo!!")
         console.erro("Ya lo has roto")
         let nombre="Juan"
+        let aEdad []
         const curso="DAM" /*Const es un tipo de valor CONSTANTE por lo que luego no se puede cambiar*/
         console.log("Tu nombre es: " +nombre)
-        console.log("Tu nombre es: ", nombre)
+        console.log("Tu nombre< es: ", nombre)
         console.log(`Tu nombre es: ${nombre}`)
         console.log("Tu nombre es: " +nombre +"Y estas en el curso:" +curso)
         console.log(edad <18 ? "Eres menor." : "Eres mayor")
+        if (edad < 18) {
+            console.log ("Eres menor")
+        }
+        else 
+            console.log ("Eres mayor de edad")
+
+        for (let num =1; num < 10; num++) {
+            console.log(num)
+        }
+        num=1
+        while (num <= 10){
+            console.log(num++)
+        }
+
+        //let max = 6
+        //let aleatorio = Math.floor(Math.random()*max+1)
+        //console.log(aleatorio)
+
+        /*
+        Función para mostrar en consola el valor de "valor"
+        */
+        //function muestra(valor) {
+        //  console.log(valor)
+        //}
+
+        /*
+        function aleatorio (){
+        let aleatorio = Math.floor(Math.random()*max) +1
+        return aleatorio
+        }
+
+        functio insertarUnico(aBoleto, numAleatorio){
+            if(aBoleto.indexOf(numAleatorio) >-1){
+                
+            }
+            else {
+            aBoleto.push(numAleatorio)
+        }
+
+        let veces =6
+        let num = 1
+        let aBoleto[]
+        while (aBoleto.length < veces){
+            let numAleatorio = aleatorio(49)
+            insetarUnico (aBoleto, numAleatorio)            
+            }
+        }
+        
+        console.log(aBoleto)
+       */
     </script>
     <script src="js/app.js"></script> /* La posición del scrip determina como y cuando se carga*/
     </head>
@@ -24,6 +77,7 @@
         <p> Usaremos LET (let) para definir variables, por ejemplo let nombre = "Juan". Antiguamete se 
             usaba var, pero da errores por lo que conviene cambiar a let.
         </p>
+    
     </body>
     
 </html>
