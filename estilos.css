@@ -1,0 +1,586 @@
+/* ============================================================================
+   PLANTILLA CSS COMENTADA - LENGUAJES DE MARCAS (DAM)
+   ============================================================================
+   TEMARIO UTILIZADO:
+   - UD5_0: presentación de CSS y separación entre contenido y presentación.
+   - UD5_0B: CSS básico, formas de incluirlo, sintaxis, selectores, herencia,
+              conflictos entre estilos y medios (@media).
+   - UD_5.1: tipos de elementos, posicionamiento, visualización y texto.
+   - UD_5.2: Flexbox, alineación, flexibilidad y transiciones.
+
+   OBJETIVO:
+   Servir de plantilla de consulta mientras creas páginas HTML.
+   Puedes copiar este archivo como "estilos.css" y enlazarlo desde tu HTML:
+
+       <link rel="stylesheet" href="estilos.css">
+
+   Los ejemplos de clase solo se aplican si añades esa clase al HTML.
+   Los selectores generales (*, body, h1...) sí afectan a sus elementos.
+   ============================================================================ */
+
+/* ============================================================================
+   01. SINTAXIS Y COMENTARIOS
+   ============================================================================
+
+   selector {
+       propiedad: valor;      <-- Cada declaración termina con ;
+       otra-propiedad: valor;
+   }
+
+   - Selector: decide A QUÉ elementos se aplican los estilos.
+   - Propiedad: indica QUÉ característica se modifica.
+   - Valor: indica CÓMO será esa característica.
+   - Llaves { }: contienen las declaraciones de la regla.
+   - Este es un comentario CSS; los comentarios HTML usan otra sintaxis.
+
+   TRES FORMAS DE APLICAR CSS A HTML:
+   1) Archivo externo: <link rel="stylesheet" href="estilos.css"> (recomendado).
+   2) Dentro de <style> ... </style> en el <head> de HTML.
+   3) En línea: <p style="color: blue;">Texto</p>.
+
+   NOTA: En un fichero .css NO escribas etiquetas <style> ni código HTML.
+   ============================================================================ */
+
+/* ============================================================================
+   02. SELECTORES BÁSICOS
+   ============================================================================ */
+
+/* Selector universal (*) = selecciona TODOS los elementos. */
+* {
+    box-sizing: border-box; /* width y height incluyen padding y borde. */
+}
+
+/* Selector de etiqueta: afecta a todos los elementos <body>. */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Familia de fuentes. */
+    font-size: 16px;                       /* Tamaño de letra base. */
+    line-height: 1.5;                     /* Altura entre líneas. */
+    color: #222;                         /* Color del texto. */
+    background-color: #fff;              /* Color de fondo. */
+    margin: 20px;                        /* Espacio EXTERIOR al elemento. */
+}
+
+/* Agrupación de selectores (,): aplica las mismas reglas a varios elementos. */
+h1 {
+    color:#1f3654;
+    margin-bottom: 10px;
+}
+h2 {
+    color:lightblue;
+}
+h3 {
+    color:#8b1e1e;
+}
+
+/* Selector de CLASE: empieza por un punto en CSS.
+   HTML: <div class="especial">Contenido</div>
+   En el atributo class NO escribas el punto. */
+.especial {
+    color: #c04b00;
+    background-color: #eaf2ff;
+    padding: 12px;
+    border: 1px dashed #8bb3eb; /*dashed hace que el borde sea una línea discontinua, pero hay más opciones: "doted".- Línea de puntos, "double".- doble recuadro.
+    border-radius: 5px;
+}
+
+/* Selector de ID: empieza por # en CSS.
+   HTML: <p id="aviso">Atención</p>
+   Un ID debe identificar a un elemento único dentro del documento. */
+#aviso {
+    color: #8b1e1e;
+    font-weight: bold;
+}
+
+/* Selector combinado etiqueta.clase: solo <p> con class="destacado".
+   HTML: <p class="destacado">Texto</p> */
+p.destacado {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Selector descendente (ESPACIO): cualquier <p> dentro de .zona,
+   aunque esté dentro de otros elementos intermedios.
+   HTML: <div class="zona"><section><p>Texto</p></section></div> */
+.zona p {
+    color: #285c7c;
+}
+
+/* Selector de hijo directo (>): solo <li> hijos DIRECTOS de .menu.
+   HTML: <ul class="menu"><li>Inicio</li></ul> */
+.menu > li {
+    margin-bottom: 5px;
+}
+
+/* Selector de hermano adyacente (+): un <p> inmediatamente después
+   de un elemento .titulo al mismo nivel en el HTML. */
+.titulo + p {
+    margin-top: 0;
+}
+
+/* Selector de atributo: campos con type="text".
+   HTML: <input type="text"> */
+input[type="text"] {
+    border: 1px solid #777;
+    padding: 6px;
+}
+
+/* Otro selector de atributo: elementos con data-tipo="importante".
+   HTML: <div data-tipo="importante">Aviso</div> */
+[data-tipo="importante"] {
+    background-color: #fff4d7;
+}
+
+/* Pseudoclase (:hover): se activa cuando el puntero pasa por encima. */
+a:hover {
+    color: #c04b00;
+}
+
+/* Pseudoelemento (::first-letter): selecciona la primera letra.
+   HTML: <p class="letra-inicial">Ejemplo</p> */
+.letra-inicial::first-letter {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* ============================================================================
+   03. HERENCIA, CASCADA Y ESPECIFICIDAD
+   ============================================================================
+   HERENCIA: ciertas propiedades, como color o font-family, suelen pasar
+   del elemento padre a sus descendientes.
+
+   CASCADA: varias reglas pueden coincidir sobre el mismo elemento.
+   El navegador resuelve el conflicto según origen, importancia,
+   especificidad y, cuando corresponde, orden de aparición.
+
+   ORIENTACIÓN BÁSICA (para reglas normales del mismo origen y capa):
+   selector de etiqueta < clase < ID. Un estilo en línea suele tener
+   prioridad frente a esas reglas normales.
+   Si dos reglas tienen la misma especificidad, gana normalmente la última.
+
+   OJO: poner .especial en un <div> no siempre impone el color a los <p>
+   internos si esos <p> reciben su propio color de otra regla.
+
+   Ejemplo: <p class="texto-heredado">...</p> */
+.texto-heredado {
+    color: inherit; /* Toma el color calculado de su elemento padre. */
+}
+
+/* ============================================================================
+   04. COLORES Y FONDOS
+   ============================================================================
+   Formas habituales de indicar un color:
+   - Nombre:    blue, red, black...
+   - HEX:       #0066cc
+   - RGB:       rgb(0, 102, 204)
+   - RGBA:      rgba(0, 102, 204, 0.4)  -> incluye transparencia.
+   También existen HSL y HSLA.
+
+   HTML: <div class="caja-color">Texto</div> */
+.caja-color {
+    color: #ffffff;                     /* Color de letra. */
+    background-color: rgb(0, 102, 204); /* Color de fondo. */
+    opacity: 1;                        /* Opacidad total; 0 sería invisible. */
+}
+
+/* ============================================================================
+   05. UNIDADES Y MEDIDAS
+   ============================================================================
+   px   = píxeles CSS.
+   %    = porcentaje respecto de una medida de referencia (según propiedad).
+   em   = unidad relativa (a menudo al tamaño de fuente del elemento).
+   rem  = relativa al tamaño de letra del elemento raíz (<html>).
+   vw   = 1% del ancho del área visible del navegador.
+   vh   = 1% del alto del área visible del navegador.
+   auto = el navegador calcula automáticamente el valor cuando procede.
+
+   HTML: <div class="medidas">...</div> */
+.medidas {
+    width: 80%;        /* Ancho relativo al bloque contenedor. */
+    max-width: 600px;  /* Límite superior del ancho. */
+    min-height: 80px;  /* Altura mínima. */
+    margin: 0 auto;    /* Centra una caja con ancho inferior al disponible. */
+}
+
+/* ============================================================================
+   06. MODELO DE CAJAS: MARGIN, BORDER, PADDING Y CONTENIDO
+   ============================================================================
+   DE FUERA HACIA DENTRO:
+       margin -> border -> padding -> contenido
+
+   margin: espacio EXTERIOR, fuera del borde.
+   border: borde de la caja.
+   padding: espacio INTERIOR, entre el borde y el contenido.
+
+   Atajo con cuatro valores: arriba, derecha, abajo, izquierda.
+   Atajo con dos valores: arriba/abajo, derecha/izquierda.
+
+   HTML: <div class="caja-ejemplo">Contenido</div> */
+.caja-ejemplo {
+    width: 300px;
+    padding: 15px;
+    margin: 10px 20px;
+    border: 2px solid black; /* 2px=grosor, solid=estilo, black=color. */
+    border-radius: 10px;    /* Redondea las esquinas. */
+    background-color: #f4f4f4;
+}
+
+/* Puedes controlar los cuatro lados por separado. */
+.espacios-especificos {
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    padding-top: 8px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+}
+
+/* ============================================================================
+   07. TIPOGRAFÍA Y PROPIEDADES DEL TEXTO
+   ============================================================================
+   Estas propiedades se estudian dentro del apartado "Texto".
+   HTML: <p class="texto-ejemplo">Hola, mundo</p> */
+.texto-ejemplo {
+    font-family: Georgia, "Times New Roman", serif; /* Tipo de letra. */
+    font-size: 1.2rem;       /* Tamaño de la fuente. */
+    font-weight: bold;       /* Grosor: normal, bold, 100...900. */
+    font-style: italic;      /* normal o italic. */
+    font-variant: small-caps;/* Muestra versalitas si la fuente las admite. */
+    line-height: 1.6;       /* Altura del renglón. */
+    text-align: center;     /* left, right, center, justify... */
+    text-decoration: underline; /* none, underline, line-through... */
+    text-transform: uppercase;  /* uppercase, lowercase, capitalize... */
+    text-indent: 0;         /* Sangría de la primera línea. */
+    letter-spacing: 1px;    /* Espacio entre letras. */
+    word-spacing: 2px;      /* Espacio entre palabras. */
+}
+
+/* Forma abreviada de varias propiedades tipográficas.
+   Orden típico: estilo, peso, tamaño / interlineado, familia. */
+.fuente-abreviada {
+    font: italic bold 16px/1.5 Arial, sans-serif;
+}
+
+/* ============================================================================
+   08. LISTAS Y ENLACES
+   ============================================================================
+   list-style-type controla las viñetas o numeración. */
+.lista-cuadrada {
+    list-style-type: square; /* Viñetas cuadradas. */
+    padding-left: 25px;
+}
+
+.lista-sin-vinetas {
+    list-style-type: none;   /* Quita las viñetas. */
+    padding-left: 0;
+}
+
+.enlace-sin-subrayado {
+    text-decoration: none;   /* Quita el subrayado del enlace. */
+}
+
+/* ============================================================================
+   09. TABLAS, BORDES Y ESQUINAS REDONDEADAS
+   ============================================================================
+   En tu HTML ya has practicado colspan y rowspan: son atributos de HTML,
+   no propiedades de CSS.
+
+   Tabla con bordes unidos (sin bordes dobles):
+   HTML: <table class="tabla-bordes">...</table> */
+.tabla-bordes {
+    border-collapse: collapse; /* Fusiona los bordes de celdas vecinas. */
+    border: 2px solid black;
+}
+
+.tabla-bordes th,
+.tabla-bordes td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;    /* Centra horizontalmente. */
+    vertical-align: middle;/* Centra verticalmente dentro de la celda. */
+}
+
+/* Tabla con esquinas redondeadas:
+   border-collapse: collapse puede impedir que se vea border-radius.
+   Usamos separate y border-spacing: 0 para permitir esquinas redondeadas.
+   HTML: <table class="tabla-redondeada">...</table> */
+.tabla-redondeada {
+    border: 2px solid black;
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.tabla-redondeada th,
+.tabla-redondeada td {
+    padding: 8px;
+    text-align: center;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+/* Evitan dobles líneas sobre el borde exterior. */
+.tabla-redondeada tr > :last-child {
+    border-right: 0;
+}
+.tabla-redondeada tr:last-child > * {
+    border-bottom: 0;
+}
+
+/* ============================================================================
+   10. DISPLAY, VISIBILITY Y OVERFLOW
+   ============================================================================
+   display: block        -> ocupa normalmente una línea completa.
+   display: inline       -> fluye dentro de una línea; width/height no
+                            funcionan como en una caja de bloque.
+   display: inline-block -> fluye en línea, pero admite width/height.
+   display: none         -> no se muestra y NO reserva espacio.
+
+   visibility: hidden    -> se oculta, pero SÍ conserva su espacio.
+
+   overflow: visible     -> el exceso de contenido puede sobresalir.
+   overflow: hidden      -> recorta el contenido que sobresale.
+   overflow: auto        -> añade scroll si es necesario.
+   overflow: scroll      -> permite desplazamiento incluso cuando no hace falta.
+
+   HTML: <div class="caja-scroll">Texto muy largo...</div> */
+.caja-scroll {
+    width: 250px;
+    height: 100px;
+    overflow: auto;
+    border: 1px solid #555;
+}
+
+.oculto-sin-espacio {
+    display: none;
+}
+
+.oculto-con-espacio {
+    visibility: hidden;
+}
+
+.elemento-en-linea {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+}
+
+/* ============================================================================
+   11. POSICIONAMIENTO Y Z-INDEX
+   ============================================================================
+   position: static   -> posición normal (valor inicial).
+   position: relative -> mantiene su hueco y se desplaza respecto a sí mismo.
+   position: absolute -> sale del flujo normal; usa como referencia el
+                         ancestro posicionado más cercano (si existe).
+   position: fixed    -> queda fijado respecto al área visible.
+
+   top/right/bottom/left desplazan o sitúan elementos posicionados.
+   z-index controla qué caja queda delante cuando se superponen,
+   dentro de las reglas de contextos de apilamiento.
+
+   HTML: <div class="contenedor-posicion">
+             <span class="elemento-absoluto">Etiqueta</span>
+         </div> */
+.contenedor-posicion {
+    position: relative;
+    min-height: 120px;
+    border: 1px solid #888;
+}
+
+.elemento-absoluto {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background-color: #eef;
+}
+
+.elemento-relativo {
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+
+/* Solo usar si quieres un elemento fijo en pantalla.
+   HTML: <aside class="elemento-fijo">...</aside> */
+.elemento-fijo {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+/* ============================================================================
+   12. FLOAT Y CLEAR (MAQUETACIÓN TRADICIONAL)
+   ============================================================================
+   float: left/right -> hace flotar una caja y permite que el texto la rodee.
+   clear: both       -> impide que el elemento quede junto a flotantes anteriores.
+   Hoy suele ser preferible Flexbox para organizar columnas.
+
+   HTML: <img class="imagen-flotante" src="foto.jpg" alt="Descripción"> */
+.imagen-flotante {
+    float: left;
+    width: 120px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.limpiar-flotantes {
+    clear: both;
+}
+
+/* ============================================================================
+   13. FLEXBOX: CONTENEDORES FLEXIBLES
+   ============================================================================
+   Flexbox sirve para colocar y alinear elementos de forma flexible.
+
+   HTML DE EJEMPLO:
+   <div class="flex-contenedor">
+       <div class="flex-item">A</div>
+       <div class="flex-item">B</div>
+       <div class="flex-item">C</div>
+   </div>
+
+   - Contenedor FLEX: elemento padre con display: flex.
+   - Ítems FLEX: hijos directos del contenedor.
+   - Eje principal: lo define flex-direction (por defecto: fila).
+   - Eje secundario: perpendicular al principal.
+   ============================================================================ */
+.flex-contenedor {
+    display: flex;             /* Activa Flexbox; inline-flex si va en línea. */
+    flex-direction: row;       /* row, row-reverse, column, column-reverse. */
+    flex-wrap: wrap;          /* nowrap, wrap, wrap-reverse. */
+    /* flex-flow: row wrap;   Atajo para dirección + envoltura. */
+
+    justify-content: center;  /* Alinea/distribuye en el eje PRINCIPAL. */
+    align-items: center;      /* Alinea ítems en el eje SECUNDARIO. */
+    align-content: center;    /* Alinea varias líneas flex si hay espacio. */
+
+    gap: 12px;                /* Separación entre elementos. */
+    /* row-gap: 8px;         Espacio entre FILAS. */
+    /* column-gap: 12px;     Espacio entre COLUMNAS. */
+    /* gap: 8px 12px;        Atajo: filas columnas. */
+
+    min-height: 140px;
+    padding: 10px;
+    border: 2px solid #555;
+}
+
+/* Otras opciones útiles de distribución:
+   justify-content: flex-start | flex-end | center | space-between |
+                    space-around | space-evenly;
+   align-items: stretch | flex-start | flex-end | center | baseline;
+   align-content: flex-start | flex-end | center | space-between |
+                  space-around | stretch;
+
+   IMPORTANTE: align-content es útil con VARIAS líneas (flex-wrap)
+   y espacio libre sobre el eje secundario.
+*/
+
+/* ============================================================================
+   14. FLEXBOX: ELEMENTOS FLEXIBLES (HIJOS DIRECTOS)
+   ============================================================================
+   flex-basis -> tamaño base del elemento sobre el eje principal.
+   flex-grow  -> capacidad relativa de CRECER si sobra espacio.
+   flex-shrink-> capacidad relativa de ENCOGER si falta espacio.
+   flex       -> abreviatura de grow, shrink y basis.
+   order      -> cambia el orden VISUAL (no el orden del HTML ni de lectura).
+   align-self -> modifica la alineación de un único ítem.
+   ============================================================================ */
+.flex-item {
+    flex: 1 1 120px; /* grow:1, shrink:1, basis:120px. */
+    min-width: 0;    /* Facilita que el contenido pueda encoger. */
+    padding: 15px;
+    border: 1px solid #224b76;
+    background-color: #dfeeff;
+    text-align: center;
+}
+
+.flex-item--crece {
+    flex-grow: 2;     /* Crece proporcionalmente más que uno con grow:1. */
+}
+
+.flex-item--primero {
+    order: -1;        /* Se muestra antes de ítems con order:0. */
+}
+
+.flex-item--arriba {
+    align-self: flex-start; /* Sobrescribe align-items para este ítem. */
+}
+
+/* ============================================================================
+   15. TRANSICIONES Y ESTADOS INTERACTIVOS
+   ============================================================================
+   transition suaviza el cambio de propiedades CSS entre dos estados.
+   Por ejemplo, entre el estado normal y :hover.
+
+   HTML: <button class="boton-animado">Púlsame</button> */
+.boton-animado {
+    padding: 10px 16px;
+    border: 1px solid #21527d;
+    border-radius: 6px;
+    background-color: #dfeeff;
+    color: #173b59;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-animado:hover {
+    background-color: #a9d4ff;
+    transform: translateY(-2px); /* Se mueve ligeramente hacia arriba. */
+}
+
+/* ============================================================================
+   16. MEDIOS CSS: @MEDIA, PANTALLA, IMPRESIÓN Y DISEÑO RESPONSIVE
+   ============================================================================
+   @media aplica reglas según un medio o característica del dispositivo.
+   - screen: para pantallas.
+   - print: para imprimir.
+   - (max-width: 600px): ejemplo de adaptación a pantallas estrechas.
+
+   También existe @import para cargar otras hojas de estilo, aunque para
+   enlazar el archivo principal suele usarse <link> en HTML.
+   Ejemplo (NO activado): @import url("otra-hoja.css") screen;
+   ============================================================================ */
+
+/* Cuando el área visible tiene 600px o menos de ancho. */
+@media screen and (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+
+    .flex-contenedor {
+        flex-direction: column; /* Coloca los ítems de arriba a abajo. */
+    }
+
+    .flex-item {
+        width: 100%;
+        flex-basis: auto;
+    }
+}
+
+/* Estilos específicos para la impresión. */
+@media print {
+    body {
+        color: black;
+        background-color: white;
+    }
+
+    .boton-animado {
+        display: none; /* Oculta botones decorativos al imprimir. */
+    }
+}
+
+/* ============================================================================
+   17. RECORDATORIOS FINALES
+   ============================================================================
+   - HTML estructura y describe el contenido; CSS controla su presentación.
+   - Una clase se escribe .mi-clase en CSS y class="mi-clase" en HTML.
+   - Un ID se escribe #mi-id en CSS e id="mi-id" en HTML.
+   - Se pueden tener varias clases: class="especial caja-ejemplo".
+   - No mezcles "colspan" o "rowspan" con las propiedades CSS: son de HTML.
+   - Si algo no se estiliza, comprueba la ruta de <link>, la clase y las llaves.
+   - Si una regla no parece funcionar, revisa herencia, cascada y especificidad.
+   - Usa la consola/herramientas de desarrollador para inspeccionar estilos.
+   ============================================================================ */

@@ -1,0 +1,99 @@
+body{
+    background-image: url("../images/fondo.jpg");
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+img{    
+}
+
+div{
+}
+
+#header{
+    text-align: center;
+}
+
+#header img{
+}
+
+#content{
+    text-align: center;
+}
+
+#content img{
+    border-style: solid;
+    border-color: #BD2A18;
+    border-radius: 20px;
+    box-shadow: 15px 5px 5px #898989;
+}
+
+#menu{
+    text-align: center;
+}
+
+#menu a:link{
+    color: #BD2A18;
+}
+
+#menu a:visited{
+    color: #5B0200;
+}
+
+#menu a:hover{
+    color: #898989;
+}
+
+#menu a:active{
+    color: #BD2A18;
+}
+
+#menu img{
+}
+
+#footer{
+    text-align: center;
+
+}
+
+#footer img{
+    border-style: solid;
+    border-color: #898989;
+    border-radius: 100px;
+    height: 100px;
+}
+
+h1{
+    background-color: #5B0200;
+    color: #898989;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #BD2A18;
+    text-align: center;
+}
+
+h2{
+
+}
+
+h3{
+
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    color: #898989;
+
+    display: inline;
+    border: 2px #BD2A18 solid;
+    border-radius: 15px;
+}
+
+p{
+
+}
+
